@@ -5,8 +5,8 @@ account: capillajos
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 3246373
-bundleId: 3869016
+bundleId: 3872450
 url: https://capillajos.shinyapps.io/CarAnalyzer/
-when: 1605572404.9505
+when: 1605634449.06481
 asMultiple: FALSE
 asStatic: FALSE

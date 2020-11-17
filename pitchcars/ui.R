@@ -4,7 +4,7 @@ shinyUI(
     navbarPage("Shiny Application",
                tabPanel("Analysis",
                         fluidPage(
-                            titlePanel("The relationship between variables and miles per gallon (MPG)"),
+                            titlePanel("The relationship between variables and miles per gallon (MPG) 2020/17/11"),
                             sidebarLayout(
                                 sidebarPanel(
                                     selectInput("variable", "Variable:",
@@ -27,10 +27,10 @@ shinyUI(
                                     h3(textOutput("caption")),
                                     
                                     tabsetPanel(type = "tabs", 
-                                                tabPanel("BoxPlot", plotOutput("mpgBoxPlot")),
                                                 tabPanel("Regression model", 
                                                          plotOutput("mpgPlot"),
-                                                         verbatimTextOutput("fit")
+                                                         verbatimTextOutput("fit")),
+                                                tabPanel("BoxPlot", plotOutput("mpgBoxPlot")
                                                 )
                                     )
                                 )

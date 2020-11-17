@@ -22,7 +22,10 @@ widgets: bootstrap
 
 - This assignment has two parts the first one is a shiny app that you would find at my github link (bellow), and this second part is a  reproducible pitch presentation made using Slidify about my app that is an analysis of mtcars Data set."
 
-- URL: *https://github.com/capillajos/DDP_courseproject*
+- Shiny online app URL: *https://capillajos.shinyapps.io/CarAnalyzer/*
+- github repo URL: *https://github.com/capillajos/DDP_courseproject*
+
+---
 
 ### Find all details of the assignment here
 
@@ -48,6 +51,11 @@ head(mtcars, 8)
 ## mtcars Dataset - Format
 
 **A data frame with 32 observations on 11 variables.**
+
+```{r}
+library(datasets)
+dim(mtcars)
+```
 
 | Index | Field | Detail |
 ------- | ----- | ------ |
@@ -83,3 +91,11 @@ head(mtcars, 8)
       abline(fit(), col=2)
     })  })
 ```
+---
+
+## Last Notes
+
+Thank you! Hope this might help you in starting out down the awesome data science path.
+
+
+

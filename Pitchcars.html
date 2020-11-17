@@ -449,8 +449,12 @@ Carlos Andres Pillajo
 <h3 id="see-the-regression-models-course-project">See the Regression Models Course Project</h3>
 <ul>
 <li><p>This assignment has two parts the first one is a shiny app that you would find at my github link (bellow), and this second part is a reproducible pitch presentation made using Slidify about my app that is an analysis of mtcars Data set.&quot;</p></li>
-<li><p>URL: <em><a href="https://github.com/capillajos/DDP_courseproject" class="uri">https://github.com/capillajos/DDP_courseproject</a></em></p></li>
+<li><p>Shiny online app URL: <em><a href="https://capillajos.shinyapps.io/CarAnalyzer/" class="uri">https://capillajos.shinyapps.io/CarAnalyzer/</a></em></p></li>
+<li><p>github repo URL: <em><a href="https://github.com/capillajos/DDP_courseproject" class="uri">https://github.com/capillajos/DDP_courseproject</a></em></p></li>
 </ul>
+</div>
+<div class="slide section level2">
+
 <h3 id="find-all-details-of-the-assignment-here">Find all details of the assignment here</h3>
 <p>URL: <em><a href="https://www.coursera.org/learn/data-products/peer/tMYrn/course-project-shiny-application-and-reproducible-pitch" class="uri">https://www.coursera.org/learn/data-products/peer/tMYrn/course-project-shiny-application-and-reproducible-pitch</a></em></p>
 </div>
@@ -479,6 +483,9 @@ Carlos Andres Pillajo
 <div id="mtcars-dataset---format" class="slide section level2">
 <h1>mtcars Dataset - Format</h1>
 <p><strong>A data frame with 32 observations on 11 variables.</strong></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">library</span>(datasets)</a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="kw">dim</span>(mtcars)</a></code></pre></div>
+<pre><code>## [1] 32 11</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -548,20 +555,24 @@ Carlos Andres Pillajo
 </div>
 <div id="analysis---main-code" class="slide section level2">
 <h1>Analysis - Main Code</h1>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">  formulaTextPoint &lt;-<span class="st"> </span><span class="kw">reactive</span>({</a>
-<a class="sourceLine" id="cb3-2" title="2">    <span class="kw">paste</span>(<span class="st">&quot;mpg ~&quot;</span>, <span class="st">&quot;as.integer(&quot;</span>, input<span class="op">$</span>variable, <span class="st">&quot;)&quot;</span>)  })</a>
-<a class="sourceLine" id="cb3-3" title="3">  </a>
-<a class="sourceLine" id="cb3-4" title="4">  fit &lt;-<span class="st"> </span><span class="kw">reactive</span>({</a>
-<a class="sourceLine" id="cb3-5" title="5">    <span class="kw">lm</span>(<span class="kw">as.formula</span>(<span class="kw">formulaTextPoint</span>()), <span class="dt">data=</span>mpgData)  })</a>
-<a class="sourceLine" id="cb3-6" title="6">  ...</a>
-<a class="sourceLine" id="cb3-7" title="7">  output<span class="op">$</span>fit &lt;-<span class="st"> </span><span class="kw">renderPrint</span>({</a>
-<a class="sourceLine" id="cb3-8" title="8">    <span class="kw">summary</span>(<span class="kw">fit</span>()) })</a>
-<a class="sourceLine" id="cb3-9" title="9">  </a>
-<a class="sourceLine" id="cb3-10" title="10">  output<span class="op">$</span>mpgPlot &lt;-<span class="st"> </span><span class="kw">renderPlot</span>({</a>
-<a class="sourceLine" id="cb3-11" title="11">    <span class="kw">with</span>(mpgData, {</a>
-<a class="sourceLine" id="cb3-12" title="12">      <span class="kw">plot</span>(<span class="kw">as.formula</span>(<span class="kw">formulaTextPoint</span>()))</a>
-<a class="sourceLine" id="cb3-13" title="13">      <span class="kw">abline</span>(<span class="kw">fit</span>(), <span class="dt">col=</span><span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb3-14" title="14">    })  })</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">  formulaTextPoint &lt;-<span class="st"> </span><span class="kw">reactive</span>({</a>
+<a class="sourceLine" id="cb5-2" title="2">    <span class="kw">paste</span>(<span class="st">&quot;mpg ~&quot;</span>, <span class="st">&quot;as.integer(&quot;</span>, input<span class="op">$</span>variable, <span class="st">&quot;)&quot;</span>)  })</a>
+<a class="sourceLine" id="cb5-3" title="3">  </a>
+<a class="sourceLine" id="cb5-4" title="4">  fit &lt;-<span class="st"> </span><span class="kw">reactive</span>({</a>
+<a class="sourceLine" id="cb5-5" title="5">    <span class="kw">lm</span>(<span class="kw">as.formula</span>(<span class="kw">formulaTextPoint</span>()), <span class="dt">data=</span>mpgData)  })</a>
+<a class="sourceLine" id="cb5-6" title="6">  ...</a>
+<a class="sourceLine" id="cb5-7" title="7">  output<span class="op">$</span>fit &lt;-<span class="st"> </span><span class="kw">renderPrint</span>({</a>
+<a class="sourceLine" id="cb5-8" title="8">    <span class="kw">summary</span>(<span class="kw">fit</span>()) })</a>
+<a class="sourceLine" id="cb5-9" title="9">  </a>
+<a class="sourceLine" id="cb5-10" title="10">  output<span class="op">$</span>mpgPlot &lt;-<span class="st"> </span><span class="kw">renderPlot</span>({</a>
+<a class="sourceLine" id="cb5-11" title="11">    <span class="kw">with</span>(mpgData, {</a>
+<a class="sourceLine" id="cb5-12" title="12">      <span class="kw">plot</span>(<span class="kw">as.formula</span>(<span class="kw">formulaTextPoint</span>()))</a>
+<a class="sourceLine" id="cb5-13" title="13">      <span class="kw">abline</span>(<span class="kw">fit</span>(), <span class="dt">col=</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb5-14" title="14">    })  })</a></code></pre></div>
+</div>
+<div id="last-notes" class="slide section level2">
+<h1>Last Notes</h1>
+<p>Thank you! Hope this might help you in starting out down the awesome data science path.</p>
 </div>
 
   <!-- dynamically load mathjax for compatibility with self-contained -->
