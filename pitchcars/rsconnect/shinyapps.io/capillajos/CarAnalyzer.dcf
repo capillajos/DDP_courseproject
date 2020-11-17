@@ -1,0 +1,12 @@
+name: CarAnalyzer
+title: CarAnalyzer
+username:
+account: capillajos
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3246373
+bundleId: 3869016
+url: https://capillajos.shinyapps.io/CarAnalyzer/
+when: 1605572404.9505
+asMultiple: FALSE
+asStatic: FALSE
